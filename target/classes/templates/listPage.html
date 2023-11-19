@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CustomerList</title>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Street</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Iterate through the list of HashMaps -->
+        <tr th:each="person : ${list}">
+            <!-- Access values using keys -->
+            <td th:text="${person['first_name']}"></td>
+            <td th:text="${person['last_name']}"></td>
+            <td th:text="${person['street']}"></td>
+            <td th:text="${person['address']}"></td>
+            <td th:text="${person['city']}"></td>
+            <td th:text="${person['state']}"></td>
+            <td th:text="${person['email']}"></td>
+            <td th:text="${person['phone']}"></td>
+            
+            <!-- Add columns with buttons linking to specific URLs -->
+            <td><a th:href="@{/customer/updateCustomer(uuid=${person['uuid']})}"><button>Update</button></a></td>
+            <td><a th:href="@{/customer/delete(uuid=${person['uuid']})}"><button>Delete</button></a></td>
+        </tr>
+    </tbody>
+    
+  
+</table>
+
+<div><a th:href="@{/customer/newCustomer}"><button>Create New </button></a></div>
+</body>
+</html>
