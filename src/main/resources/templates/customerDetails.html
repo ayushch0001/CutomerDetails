@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Form</title>
+</head>
+<body>
+
+<h2>Customer Information Form</h2>
+
+<form action="/customer/addCustomer" method="post" th:object="${customer}">
+    <!-- Each input field corresponds to a property in the Customer class -->
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" th:field="*{first_name}" /><br/>
+
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" th:field="*{last_name}" /><br/>
+
+    <label for="street">Street:</label>
+    <input type="text" id="street" name="street" th:field="*{street}" /><br/>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" th:field="*{address}" /><br/>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" th:field="*{city}" /><br/>
+
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" th:field="*{state}" /><br/>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:field="*{email}" /><br/>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" th:field="*{phone}" /><br/>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
